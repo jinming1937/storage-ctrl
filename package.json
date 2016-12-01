@@ -1,0 +1,22 @@
+{
+  "name": "storage-ctrl",
+  "version": "1.0.0",
+  "description": "storage s.t",
+  "main": "storage_ctrl.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinming1937/storage-ctrl.git"
+  },
+  "keywords": [
+    "storage"
+  ],
+  "author": "jingming1937",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jinming1937/storage-ctrl/issues"
+  },
+  "homepage": "https://github.com/jinming1937/storage-ctrl#readme"
+}
