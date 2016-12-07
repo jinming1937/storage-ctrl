@@ -18,10 +18,16 @@ var storageCtrl = {
     getLocalData: function(key) {
         var data = JSON.parse(localStorage.getItem(key));
         if(!data['timeflag']){
-            return data;
+            var data_s = JSON.parse(sessionStorage.getItem(key+"_session"));
+            if(data_s){
+                return data_s;
+            }else{
+                return data;
+            }
         }else if(data["timeflag"] && new Date(data["timeflag"]) > new Date()){
             return data.data;
-        }else{
+        }else if(data["timeflag"] && new Date(data["timeflag"]) <= new Date()){
+            localStorage.removeItem(key);
             return null;
         }
     },
@@ -35,7 +41,8 @@ var storageCtrl = {
             var date = (new Date()).setMinutes(new Date().getMinutes()+minutes);
             localStorage.setItem(key, JSON.stringify( {data: value , timeflag: date}));
         }else{
-            localStorage.setItem(key,JSON.stringify(value));
+            //如果没有时间 则过期时间是会话
+            sessionStorage.setItem(key+"_session",JSON.stringify(value));
         }
     },
     /**
