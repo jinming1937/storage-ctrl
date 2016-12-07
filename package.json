@@ -1,6 +1,6 @@
 {
   "name": "storage-ctrl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "storage s.t",
   "main": "storage_ctrl.js",
   "scripts": {
