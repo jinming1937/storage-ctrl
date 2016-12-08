@@ -17,12 +17,12 @@ var storageCtrl = {
      */
     getLocalData: function(key) {
         var data = JSON.parse(localStorage.getItem(key));
-        if(!data['timeflag']){
+        if(!data || !data['timeflag']){
             var data_s = JSON.parse(sessionStorage.getItem(key+"_session"));
             if(data_s){
                 return data_s;
             }else{
-                return data;
+                return data;//兼容以前localStorage.getItem ／ localStorage.setItem 的操作
             }
         }else if(data["timeflag"] && new Date(data["timeflag"]) > new Date()){
             return data.data;
