@@ -66,10 +66,10 @@ var storageCtrl = {
      * @param {Number} minutes   
      */
     setCookieData: function(key, value, minutes) {
-        var minutes = typeof minutes === 'number' ? minutes : 0;
+        var _minutes = typeof minutes === 'number' ? minutes : 0;
         var exp = new Date();
-        exp.setTime(exp.getTime() + minutes * 1000);
-        var finishString = key + "=" + escape(JSON.stringify(value)) + (typeof minutes==='number'?";expires=" + exp.toGMTString():"") + ";path=/";
+        exp.setTime(exp.getTime() + _minutes * 60 * 1000);
+        var finishString = key + "=" + escape(typeof value === "string" ? value:JSON.stringify(value)) + (typeof minutes==='number'?";expires=" + exp.toGMTString():"") + ";path=/";
         var nowCookie = document.cookie;
 
         if(nowCookie.search(new RegExp(key,'g')) === -1 &&
